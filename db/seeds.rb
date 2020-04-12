@@ -9,7 +9,7 @@
 User.destroy_all
 ContactConnection.destroy_all
 Message.destroy_all
-UserMessage.destroy_all
+UserConversation.destroy_all
 
 spencer = User.create(
     username: "spencerB",
@@ -64,14 +64,14 @@ puts "users seeded"
     )
     puts "contactConnection seeded"
 
-    c1 = Conversation.create(to_user_id: spencer.id, from_user_id: jim.id)
-    c2 = Conversation.create(to_user_id: sam.id, from_user_id: jim.id)
-    c3 = Conversation.create(to_user_id: spencer.id, from_user_id: sam.id)
+    c1 = Conversation.create(to_user_id: spencer.id)
+    c2 = Conversation.create(to_user_id: sam.id)
+    c3 = Conversation.create(to_user_id: spencer.id)
     puts "Conversation seeded"
 
-    UserConversation.create(user_id: spencer.id, conversation_id: c1.id)
-    UserConversation.create(user_id: sam.id, conversation_id: c2.id)
-    UserConversation.create(user_id: spencer.id, conversation_id: c3.id)
+    UserConversation.create(user_id: jim.id, conversation_id: c1.id)
+    UserConversation.create(user_id: spencer.id, conversation_id: c2.id)
+    UserConversation.create(user_id: jim.id, conversation_id: c3.id)
 
     puts "User Conversation seeded"
 
@@ -82,11 +82,11 @@ puts "users seeded"
 
    puts "Message seeded"
 
-   UserConversation.create(conversation_id: c1.id, message_id: m1.id)
-   UserConversation.create(conversation_id: c2.id, message_id: m2.id)
-   UserConversation.create(conversation_id: c3.id, message_id: m3.id)
+   ConversationMessage.create(conversation_id: c1.id, message_id: m1.id)
+   ConversationMessage.create(conversation_id: c2.id, message_id: m2.id)
+   ConversationMessage.create(conversation_id: c3.id, message_id: m3.id)
 
-   puts "User Message seeded"
+   puts "Conversation Message seeded"
 
 
 

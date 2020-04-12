@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 2020_04_12_193950) do
 
   create_table "conversations", force: :cascade do |t|
     t.integer "to_user_id"
-    t.integer "from_user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
