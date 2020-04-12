@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_11_231924) do
+ActiveRecord::Schema.define(version: 2020_04_12_193950) do
 
   create_table "contact_connections", force: :cascade do |t|
     t.integer "user_id"
@@ -19,15 +19,30 @@ ActiveRecord::Schema.define(version: 2020_04_11_231924) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "messages", force: :cascade do |t|
-    t.string "message"
+  create_table "conversation_messages", force: :cascade do |t|
+    t.integer "message_id"
+    t.integer "conversation_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "user_messages", force: :cascade do |t|
+  create_table "conversations", force: :cascade do |t|
+    t.integer "to_user_id"
+    t.integer "from_user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "message"
     t.integer "user_id"
-    t.integer "message_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "user_conversations", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "conversation_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

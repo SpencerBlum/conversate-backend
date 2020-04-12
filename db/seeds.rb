@@ -64,15 +64,27 @@ puts "users seeded"
     )
     puts "contactConnection seeded"
 
-   m1 = Message.create(message: "Hey whats up?")
-   m2 = Message.create(message: "How are you?")
-   m3 = Message.create(message: "I am doing well")
+    c1 = Conversation.create(to_user_id: spencer.id, from_user_id: jim.id)
+    c2 = Conversation.create(to_user_id: sam.id, from_user_id: jim.id)
+    c3 = Conversation.create(to_user_id: spencer.id, from_user_id: sam.id)
+    puts "Conversation seeded"
+
+    UserConversation.create(user_id: spencer.id, conversation_id: c1.id)
+    UserConversation.create(user_id: sam.id, conversation_id: c2.id)
+    UserConversation.create(user_id: spencer.id, conversation_id: c3.id)
+
+    puts "User Conversation seeded"
+
+
+   m1 = Message.create(message: "Hey whats up?", user_id: spencer.id)
+   m2 = Message.create(message: "How are you?", user_id: sam.id)
+   m3 = Message.create(message: "I am doing well", user_id: jim.id)
 
    puts "Message seeded"
 
-   UserMessage.create(user_id: spencer.id, message_id: m1.id)
-   UserMessage.create(user_id: jim.id, message_id: m2.id)
-   UserMessage.create(user_id: spencer.id, message_id: m3.id)
+   UserConversation.create(conversation_id: c1.id, message_id: m1.id)
+   UserConversation.create(conversation_id: c2.id, message_id: m2.id)
+   UserConversation.create(conversation_id: c3.id, message_id: m3.id)
 
    puts "User Message seeded"
 
