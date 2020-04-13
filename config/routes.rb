@@ -7,8 +7,7 @@ Rails.application.routes.draw do
    post "/users" => "users#create"
   # get '/users/:id' => 'users#show'
 
-  get '/user/:id/messages' => 'messages#index'
-
-
-
+  post '/users/login' => 'users#login'
+  get '/users/:id/messages' => 'messages#index'
+  
 end

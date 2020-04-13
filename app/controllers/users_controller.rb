@@ -5,6 +5,15 @@ class UsersController < ApplicationController
         render json: users
     end
 
+    def login
+        user = User.find_by(email: params[:user][:email], password: params[:user][:password])
+        if user != nil
+            render json: user
+        else
+            render json: { message: 'Loggin Failed' }
+        end
+    end
+
     def show
         user = User.find_by(params[:id])
         render json: user
@@ -28,6 +37,13 @@ class UsersController < ApplicationController
     end
 
     private
+
+    # def login_params
+    #     params.require(:user).permit(
+    #         :password,
+    #         :email
+    #         )
+    # end
 
     def user_params
         params.require(:user).permit(
