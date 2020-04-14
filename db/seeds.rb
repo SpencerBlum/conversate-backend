@@ -78,13 +78,17 @@ puts "users seeded"
 
    m1 = Message.create(message: "Hey whats up?", user_id: spencer.id)
    m2 = Message.create(message: "How are you?", user_id: sam.id)
-   m3 = Message.create(message: "I am doing well", user_id: jim.id)
-
+   m3 = Message.create(message: "I am doing well we out here on the plaza main", user_id: spencer.id)
+   m5 = Message.create(message: "How are you? you have been killing it on the bball court", user_id: sam.id)
+   m4 = Message.create(message: "Yo what is poppin today i am doing fine how are you", user_id: spencer.id)
    puts "Message seeded"
 
-   ConversationMessage.create(conversation_id: c1.id, message_id: m1.id)
+   ConversationMessage.create(conversation_id: c2.id, message_id: m1.id)
    ConversationMessage.create(conversation_id: c2.id, message_id: m2.id)
-   ConversationMessage.create(conversation_id: c3.id, message_id: m3.id)
+   ConversationMessage.create(conversation_id: c2.id, message_id: m3.id)
+   ConversationMessage.create(conversation_id: c2.id, message_id: m4.id)
+   ConversationMessage.create(conversation_id: c2.id, message_id: m5.id)
+   ConversationMessage.create(conversation_id: c2.id, message_id: m3.id)
 
    puts "Conversation Message seeded"
 

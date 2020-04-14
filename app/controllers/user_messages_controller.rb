@@ -1,2 +1,0 @@
-class UserMessagesController < ApplicationController
-end
