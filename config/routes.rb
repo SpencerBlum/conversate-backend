@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   post '/users/login' => 'users#login'
   post '/users/:id/newcontact' => 'users#newcontact'
+  delete '/users/:id/newcontact/:user_contact_id' => 'users#deletecontact'
   get '/users/:id/messages' => 'messages#index'
   
 end

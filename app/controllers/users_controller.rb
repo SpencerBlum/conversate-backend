@@ -13,6 +13,14 @@ class UsersController < ApplicationController
  
     end
 
+    def deletecontact
+      contact = ContactConnection.find_by(user_id: params[:id] , user_contact_id: params[:user_contact_id])
+      contact.destroy
+      contact.save
+      user = User.find_by(id: params[:id])
+      render json: user
+    end
+
     def login
         user = User.find_by(email: params[:user][:email], password: params[:user][:password])
         if user != nil
