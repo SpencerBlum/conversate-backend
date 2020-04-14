@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   # get '/users/:id' => 'users#show'
 
   post '/users/login' => 'users#login'
+  post '/users/:id/newcontact' => 'users#newcontact'
   get '/users/:id/messages' => 'messages#index'
   
 end
