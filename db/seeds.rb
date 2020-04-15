@@ -64,33 +64,25 @@ puts "users seeded"
     )
     puts "contactConnection seeded"
 
-    c1 = Conversation.create(to_user_id: spencer.id)
-    c2 = Conversation.create(to_user_id: sam.id)
-    c3 = Conversation.create(to_user_id: spencer.id)
+    c1 = Conversation.create(to_user_id: sam.id , from_user_id: spencer.id)
+
+    c3 = Conversation.create(to_user_id: jim.id, from_user_id: spencer.id)
     puts "Conversation seeded"
 
-    UserConversation.create(user_id: jim.id, conversation_id: c1.id)
-    UserConversation.create(user_id: spencer.id, conversation_id: c2.id)
-    UserConversation.create(user_id: jim.id, conversation_id: c3.id)
+    UserConversation.create(user_id: spencer.id, conversation_id: c1.id)
+    UserConversation.create(user_id: spencer.id, conversation_id: c3.id)
+
 
     puts "User Conversation seeded"
 
 
-   m1 = Message.create(message: "Hey whats up?", user_id: spencer.id)
-   m2 = Message.create(message: "How are you?", user_id: sam.id)
-   m3 = Message.create(message: "I am doing well we out here on the plaza main", user_id: spencer.id)
-   m5 = Message.create(message: "How are you? you have been killing it on the bball court", user_id: sam.id)
-   m4 = Message.create(message: "Yo what is poppin today i am doing fine how are you", user_id: spencer.id)
+   m1 = Message.create(message: "Hey whats up?", user_id: spencer.id, conversation_id: c1.id)
+   m2 = Message.create(message: "How are you?", user_id: sam.id , conversation_id: c1.id)
+   m3 = Message.create(message: "I am doing well we out here on the plaza main", user_id: spencer.id , conversation_id: c1.id)
+   m5 = Message.create(message: "How are you? you have been killing it on the bball court", user_id: sam.id , conversation_id: c1.id)
+   m4 = Message.create(message: "Yo what is poppin today i am doing fine how are you", user_id: spencer.id , conversation_id: c1.id)
    puts "Message seeded"
 
-   ConversationMessage.create(conversation_id: c2.id, message_id: m1.id)
-   ConversationMessage.create(conversation_id: c2.id, message_id: m2.id)
-   ConversationMessage.create(conversation_id: c2.id, message_id: m3.id)
-   ConversationMessage.create(conversation_id: c2.id, message_id: m4.id)
-   ConversationMessage.create(conversation_id: c2.id, message_id: m5.id)
-   ConversationMessage.create(conversation_id: c2.id, message_id: m3.id)
-
-   puts "Conversation Message seeded"
 
 
 

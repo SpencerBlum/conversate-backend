@@ -13,7 +13,10 @@ Rails.application.routes.draw do
   post '/users/:id/newcontact' => 'users#newcontact'
   delete '/users/:id/newcontact/:user_contact_id' => 'users#deletecontact'
   
-  
+  post '/conversations/newmessage' => 'messages#create'
+
   # get '/users/:id/messages' => 'messages#index'
+
+
   
 end
