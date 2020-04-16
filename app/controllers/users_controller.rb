@@ -1,8 +1,14 @@
 class UsersController < ApplicationController
 
+
+    def usernoconvo
+        noConvo = User.user_noConvo(params[:id])
+        render json: noConvo
+    end
+
     def index
-        users = User.all
-        render json: users
+       notContact =  User.user_specific_contact(params[:id])
+        render json: notContact
     end
 
     def newcontact
@@ -31,11 +37,12 @@ class UsersController < ApplicationController
     end
 
     def show
-        user = User.find_by(params[:id])
+        user = User.find_by(id: params["id"])
         render json: user
     end
 
     def create
+        byebug
         user = User.new(user_params)
         user.save
         render json: user
