@@ -63,10 +63,10 @@ samamtha = User.create(
             phone_number:  31212121)
 
             test3 = User.create(
-                username: "TigerKing#f*ckCarrol",
+                username: "heyyou",
                 password: "1234",
                 first_name: "Joe",
-                last_name: "Exotic",
+                last_name: "smith",
                 email: "joe@gmail.com",
                 phone_number:  31212121)
 
@@ -75,8 +75,8 @@ samamtha = User.create(
                     username: "CoolCats&Kittens",
                     password: "1234",
                     first_name: "Carrol",
-                    last_name: "Baskin",
-                    email: "bigcatrescue@gmail.com",
+                    last_name: "smith",
+                    email: "cats@gmail.com",
                     phone_number:  31212121)
 
                     test5 = User.create(
@@ -151,10 +151,10 @@ puts "users seeded"
    m1 = Message.create(message: "Hey whats up?", user_id: spencer.id)
    m2 = Message.create(message: "What it's to you", user_id: sam.id)
    m3 = Message.create(message: "Woohhh chill boozie", user_id: spencer.id)
-   m5 = Message.create(message: "How are you? you have been killing it on the bball court", user_id: sam.id)
+   m5 = Message.create(message: "How are you?", user_id: sam.id)
    m4 = Message.create(message: "Yo what is poppin today i am doing fine how are you", user_id: spencer.id)
 
-   m6 = Message.create(message: "F*ck you you carol", user_id: test3.id)
+   m6 = Message.create(message: "How are you today", user_id: test3.id)
    puts "Message seeded"
 
 
