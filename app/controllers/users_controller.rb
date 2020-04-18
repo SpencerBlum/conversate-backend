@@ -20,11 +20,17 @@ class UsersController < ApplicationController
     end
 
     def deletecontact
-      contact = ContactConnection.find_by(user_id: params[:id] , user_contact_id: params[:user_contact_id])
-      contact.destroy
-      contact.save
-      user = User.find_by(id: params[:id])
-      render json: user
+        contact = ContactConnection.find_by(user_id: params[:id] , user_contact_id: params[:user_contact_id])
+        contact.destroy
+        
+        destroythis1 = Conversation.find_by(to_user_id: params[:user_contact_id], from_user_id: params[:id])
+        
+        if destroythis1 != nil
+        destroythis1.destroy
+        end
+        # contact.save
+        user = User.find_by(id: params[:id])
+        render json: user
     end
 
     def login
@@ -42,10 +48,15 @@ class UsersController < ApplicationController
     end
 
     def create
-        byebug
-        user = User.new(user_params)
-        user.save
-        render json: user
+         foundUser = User.find_by(email: params["email"])
+         if foundUser == nil
+            user = User.new(user_params)
+            user.save
+            render json: user
+        else
+            render json: { message: 'Loggin Failed' }
+        end
+        
     end
 
     def update

@@ -30,45 +30,73 @@ jim = User.create(
 )
 
 sam = User.create(
-    username: "Sam",
+    username: "boozie",
     password: "1234",
-    first_name: "Sam",
-    last_name: "Johnson",
-    email: "sam@gmail.com",
+    first_name: "Lil",
+    last_name: "Boozie",
+    email: "boozie@gmail.com",
     phone_number:  31212121
 )
 
 samamtha = User.create(
-    username: "Samam",
+    username: "weezy",
     password: "1234",
-    first_name: "Samantha",
-    last_name: "Johnson",
-    email: "sam5@gmail.com",
+    first_name: "Lil",
+    last_name: "Wayne",
+    email: "wayne5@gmail.com",
     phone_number:  31212121)
 
     test1 = User.create(
         username: "june",
         password: "1234",
-        first_name: "june",
-        last_name: "m",
-        email: "sam4@gmail.com",
+        first_name: "Hailey",
+        last_name: "Bieber",
+        email: "Hailey4@gmail.com",
         phone_number:  31212121)
 
         test2 = User.create(
-            username: "jj",
+            username: "SmokinJoe",
             password: "1234",
-            first_name: "John",
-            last_name: "Cap",
+            first_name: "Joe",
+            last_name: "Burrow",
             email: "sam3@gmail.com",
             phone_number:  31212121)
 
             test3 = User.create(
-                username: "jj",
+                username: "TigerKing#f*ckCarrol",
                 password: "1234",
-                first_name: "ranch",
-                last_name: "dressing",
-                email: "sam2@gmail.com",
+                first_name: "Joe",
+                last_name: "Exotic",
+                email: "joe@gmail.com",
                 phone_number:  31212121)
+
+
+                test4 = User.create(
+                    username: "CoolCats&Kittens",
+                    password: "1234",
+                    first_name: "Carrol",
+                    last_name: "Baskin",
+                    email: "bigcatrescue@gmail.com",
+                    phone_number:  31212121)
+
+                    test5 = User.create(
+                        username: "TSwift",
+                        password: "1234",
+                        first_name: "Taylor",
+                        last_name: "Swift",
+                        email: "taylor@gmail.com",
+                        phone_number:  31212121)
+
+                        test6 = User.create(
+                            username: "Jogen",
+                            password: "1234",
+                            first_name: "Joe",
+                            last_name: "Rogen",
+                            email: "taylor@gmail.com",
+                            phone_number:  31212121)
+
+
+            
 
 puts "users seeded"
     ContactConnection.create(
@@ -90,10 +118,22 @@ puts "users seeded"
         user_id: spencer.id,
         user_contact_id: jim.id
     )
+
+    ContactConnection.create(
+        user_id: test3.id,
+        user_contact_id: test4.id
+    )
+
+    ContactConnection.create(
+        user_id: test4.id,
+        user_contact_id: test3.id
+    )
+
+
     puts "contactConnection seeded"
 
     c1 = Conversation.create(to_user_id: sam.id , from_user_id: spencer.id)
-    #c2 = Conversation.create(to_user_id: spencer.id , from_user_id: sam.id)
+    c2 = Conversation.create(to_user_id: test3.id , from_user_id: test4.id)
 
     # c3 = Conversation.create(to_user_id: jim.id, from_user_id: spencer.id)
     puts "Conversation seeded"
@@ -101,15 +141,20 @@ puts "users seeded"
     UserConversation.create(user_id: spencer.id, conversation_id: c1.id)
     UserConversation.create(user_id: sam.id, conversation_id: c1.id)
 
+    UserConversation.create(user_id: test3.id, conversation_id: c2.id)
+    UserConversation.create(user_id: test4.id, conversation_id: c2.id)
+
 
     puts "User Conversation seeded"
 
 
    m1 = Message.create(message: "Hey whats up?", user_id: spencer.id)
-   m2 = Message.create(message: "How are you?", user_id: sam.id)
-   m3 = Message.create(message: "I am doing well we out here on the plaza main", user_id: spencer.id)
+   m2 = Message.create(message: "What it's to you", user_id: sam.id)
+   m3 = Message.create(message: "Woohhh chill boozie", user_id: spencer.id)
    m5 = Message.create(message: "How are you? you have been killing it on the bball court", user_id: sam.id)
    m4 = Message.create(message: "Yo what is poppin today i am doing fine how are you", user_id: spencer.id)
+
+   m6 = Message.create(message: "F*ck you you carol", user_id: test3.id)
    puts "Message seeded"
 
 
@@ -119,5 +164,5 @@ puts "users seeded"
 
 
 
-
+ConversationMessage.create(conversation_id: c2.id, message_id: m6.id)
 

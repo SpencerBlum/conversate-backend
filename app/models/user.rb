@@ -6,7 +6,9 @@ class User < ApplicationRecord
     # has_many :messages, through: :user_messages
 
     has_many :user_conversations
-    has_many :conversations, through: :user_conversations
+    has_many :conversations, through: :user_conversations, :dependent => :destroy
+
+ 
 
     def self.user_specific_contact(id)
         #return a list of all user that arent already this users contacts and not self
